@@ -1,4 +1,4 @@
 hi test 1
 ##this is for test purpuse on  test1
-##this is test2 index file for test1
-this is test index file for test1 from server
+this is test2 index file for test1
+
