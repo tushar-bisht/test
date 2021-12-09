@@ -8,3 +8,8 @@ commands:
     - run:
         command: |-
           cd /var/www/html/ && git pull origin circle
+jobs:
+  hello-build:
+    executor: default
+    steps:
+    - circleci-env-highlights
