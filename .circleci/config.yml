@@ -1,15 +1,23 @@
 version: 2.1
-
-description: An orb with some simple ways to help you with your first build.
-
-commands:
-  circleci-env-highlights:
-    steps:
-    - run:
-        command: |-
-          cd /var/www/html/ && git pull origin circle
+executors:
+  my-custom-executor:
+    docker:
+      - image: cimg/base:stable
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/tushar-bisht/test/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
 jobs:
-  hello-build:
-    executor: default
+  my-job-name:
+
+    executor: my-custom-executor
     steps:
-    - circleci-env-highlights
+      - checkout
+      - run: |
+          cd /var/www/html && git pull origin circle
+
+workflows:
+  my-custom-workflow:
+    jobs:
+      - my-job-name
