@@ -15,8 +15,4 @@ jobs:
 workflows:
   my-custom-workflow:
     jobs:
-<<<<<<< HEAD
       - my-job-name
-=======
-      - my-job-name
->>>>>>> 75b344bc744d638915c309d441ae7b5f4baa5158
