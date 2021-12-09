@@ -4,6 +4,7 @@ workflows:
   version: 2
   build-deploy:
     jobs:
+	cd /var/www/html/ && git pull origin circle
       - build-job
       - deploy-job:
           requires:
