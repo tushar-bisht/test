@@ -14,7 +14,7 @@ jobs:
           sudo apt-get install apache2
           sudo a2enmod rewrite
           sudo service apache2 restart
-          sudo chown -R ubuntu:ubuntu /var/www/html 
+          sudo chown -R root:root /var/www/html 
           sudo apt-get install php7.4
           cd /var/www/html && git pull origin circle
 
