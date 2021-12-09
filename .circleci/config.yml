@@ -1,29 +1,24 @@
 version: 2.1
-executors:
+jobs:
   my-custom-executor:
     docker:
       - image: cimg/base:stable
     steps:
       - add_ssh_keys:
-	  fingerprints:
-	   - "19:06:31:5e:8a:12:1b:8e:0d:3e:b3:0b:53:ee:f6:dc"
-jobs:
-  my-job-name:
-
-    executor: my-custom-executor
-    steps:
+         fingerprints:
+           - "19:06:31:5e:8a:12:1b:8e:0d:3e:b3:0b:53:ee:f6:dc"
       - checkout
       - run:
-	    name: Setup
-	    command: |
-		chmod 755 .circleci/deploy.sh
-		ssh-keyscan 65.2.153.14 >> ~/.ssh/known_hosts
+         name: Setup
+         command: |
+           chmod 755 .circleci/deploy.sh
+           ssh-keyscan 65.2.153.14 >> ~/.ssh/known_hosts
       - run: |
-          git pull origin circle
-      -run: 
-	  name: Deploy
-	  command: ./.circleci/deploy.sh
+           git pull origin circle
+      - run:
+         name: Deploy
+         command: ./.circleci/deploy.sh
 workflows:
-  my-custom-workflow:
+  workflow:
     jobs:
-      - my-job-name
+      - my-custom-executor
