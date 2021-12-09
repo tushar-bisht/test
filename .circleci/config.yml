@@ -16,7 +16,6 @@ jobs:
           sudo service apache2 restart
           sudo chown -R root:root /var/www/html 
           sudo apt-get install php7.4
-          cd /var/www/html && git pull origin circle
 
 workflows:
   my-custom-workflow:
